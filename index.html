@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>简单圆形</title>
+</head>
+<script charset="utf-8" src="https://map.qq.com/api/gljs?v=1.exp&key=6ZIBZ-UIUC4-WSQUP-KZXGR-UGMVO-EEFI5"></script>
+<script src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
+<style type="text/css">
+  html,
+  body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+  }
+
+  #container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<body>
+  <div id="container"></div>
+  <script type="text/javascript">
+    var mapkey = '6ZIBZ-UIUC4-WSQUP-KZXGR-UGMVO-EEFI5';
+    var center = new TMap.LatLng(22.316555, 114.174328);
+    //初始化地图
+    var map = new TMap.Map("container", {
+      zoom: 12, //设置地图缩放级别
+      center: center //设置地图中心点坐标
+    });
+
+    // const clickInLatLng=
+
+    var geolocation = new qq.maps.Geolocation(mapkey, "测试");
+    // 定位成功之后调用的方法
+    function showPosition(position) {
+      let lat = position.lat;
+      let lng = position.lng;
+      console.log(lat);
+      console.log(lng);
+    };
+    function showErr() {
+      console.log('定位失败');
+    }
+    geolocation.getLocation(showPosition, showErr);
+
+
+    // // 获取位置
+    // geolocation.getCurrentPosition(function (position) {
+    //   // 获取经纬度
+    //   console.log(position.coords.longitude, position.coords.latitude);
+
+    //   // 设置地图中心点
+    //   map.setCenter(new TMap.LatLng(position.coords.latitude, position.coords.longitude));
+
+    // }, function (err) {
+    //   console.error(err);
+    // });
+
+
+    // // 创建位置服务实例
+    // var geolocation = new qq.maps.Geolocation({
+    //   enableHighAccuracy: true, // 是否启用高精度定位
+    //   timeout: 10000, // 请求的超时时间
+    //   maximumAge: 0 // 对获取位置的结果缓存的最大时间
+    // });
+
+    // // 获取位置
+    // geolocation.getCurrentPosition(function (position) {
+    //   // 获取经纬度
+    //   console.log(position.coords.longitude, position.coords.latitude);
+
+    //   // 设置地图中心点
+    //   map.setCenter(new TMap.LatLng(position.coords.latitude, position.coords.longitude));
+
+    // }, function (err) {
+    //   console.error(err);
+    // });
+
+    // var circle = new TMap.MultiCircle({
+    //   map,
+    //   styles: { // 设置圆形样式
+    //     'circle': new TMap.CircleStyle({
+    //       'color': 'rgba(41,91,255,0.16)',
+    //       'showBorder': true,
+    //       'borderColor': 'rgba(41,91,255,1)',
+    //       'borderWidth': 2,
+    //     }),
+    //   },
+    //   geometries: [{
+    //     styleId: 'circle',
+    //     center: center,
+    //     radius: 6500,
+    //   }],
+    // });
+
+
+    // // 初始化地图
+    // var map = new TMap.Map({
+    //   container: 'container', // 容器id
+    //   width: 500, // 宽度
+    //   height: 300 // 高度
+    // });
+
+    // // 创建位置服务实例
+    // var geolocation = new TMap.Geolocation({
+    //   enableHighAccuracy: true, // 是否启用高精度定位
+    //   timeout: 10000, // 请求的超时时间
+    //   maximumAge: 0 // 对获取位置的结果缓存的最大时间
+    // });
+
+    // // 获取位置
+    // geolocation.getCurrentPosition(function (position) {
+    //   // 获取经纬度
+    //   console.log(position.coords.longitude, position.coords.latitude);
+
+    //   // 设置地图中心点
+    //   map.setCenter(new TMap.LatLng(position.coords.latitude, position.coords.longitude));
+
+    // }, function (err) {
+    //   console.error(err);
+    // });
+  </script>
+</body>
+
+</html>
